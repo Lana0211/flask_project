@@ -11,7 +11,7 @@ def index():
     elif request.method == 'POST':
         # 获取数据
         data = {}
-        data['user'] = request.form.get('user')   # 后面这个name和前端的name保持一致
+        data['user'] = request.form.get('user')   # 名字和前端要保持一致
         data['password'] = request.form.get('password')
 
         # 返回到前端去
