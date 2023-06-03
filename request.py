@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify, escape
 from flask import request
 
 app = Flask(__name__)
@@ -18,5 +18,15 @@ def index():
         return render_template('index2.html', data=data)
 
     return render_template('index.html')
+
+@app.route('/problem')
+def problem():
+    data = {"w":1,"problem":"Breakfast"}
+    return jsonify(data)
+
+@app.route('/problem/<problem_id>')
+def show_problem(problem_id):
+    return f"problem: {escape(problem_id)}"
+
 
 app.run()
